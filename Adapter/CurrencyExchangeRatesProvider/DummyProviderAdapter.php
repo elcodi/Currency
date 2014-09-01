@@ -14,27 +14,42 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\Component\Currency\Adapter\ExchangeRates\Interfaces;
+namespace Elcodi\Component\Currency\Adapter\CurrencyExchangeRatesProvider;
+
+use Elcodi\Component\Currency\Adapter\CurrencyExchangeRatesProvider\Interfaces\CurrencyExchangeRatesProviderAdapterInterface;
 
 /**
- * Interface ExchangeRatesAdapterInterface
+ * Class DummyProviderAdapter
  */
-interface ExchangeRatesAdapterInterface
+class DummyProviderAdapter implements CurrencyExchangeRatesProviderAdapterInterface
 {
+    /**
+     * @var string
+     *
+     * Adapter name
+     */
+    const ADAPTER_NAME = 'none';
+
     /**
      * Get the latest exchange rates
      *
      * @param array  $symbols array of currency codes to get the rates for.
      * @param string $base    Base currency, default NULL (gets it from config)
      *
-     * @return array exchange rates
+     * @return array
      */
-    public function getExchangeRates(array $symbols = array(), $base = null);
+    public function getExchangeRates(array $symbols = array(), $base = null)
+    {
+        return [];
+    }
 
     /**
      * Gets a list of all available currencies
      *
      * @return array Currencies
      */
-    public function getCurrencies();
+    public function getCurrencies()
+    {
+        return [];
+    }
 }

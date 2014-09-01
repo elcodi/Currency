@@ -20,9 +20,9 @@ use Elcodi\Component\Currency\Adapter\LocaleProvider\Interfaces\LocaleProviderAd
 use Elcodi\Component\Language\Entity\Interfaces\LocaleInterface;
 
 /**
- * Class ElcodiLocaleProviderAdapter
+ * Class ElcodiProviderAdapter
  */
-class ElcodiLocaleProviderAdapter implements LocaleProviderAdapterInterface
+class ElcodiProviderAdapter implements LocaleProviderAdapterInterface
 {
     /**
      * @var string

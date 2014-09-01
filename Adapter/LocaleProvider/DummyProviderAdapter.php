@@ -19,9 +19,9 @@ namespace Elcodi\Component\Currency\Adapter\LocaleProvider;
 use Elcodi\Component\Currency\Adapter\LocaleProvider\Interfaces\LocaleProviderAdapterInterface;
 
 /**
- * Class DummyLocaleProviderAdapter
+ * Class DummyProviderAdapter
  */
-class DummyLocaleProviderAdapter implements LocaleProviderAdapterInterface
+class DummyProviderAdapter implements LocaleProviderAdapterInterface
 {
     /**
      * @var string

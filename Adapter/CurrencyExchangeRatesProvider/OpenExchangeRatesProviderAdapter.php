@@ -14,21 +14,21 @@
  * @author Aldo Chiecchia <zimage@tiscali.it>
  */
 
-namespace Elcodi\Component\Currency\Adapter\ExchangeRates;
+namespace Elcodi\Component\Currency\Adapter\CurrencyExchangeRatesProvider;
 
 use DateTime;
 use Exception;
 use Guzzle\Http\Client;
 use Guzzle\Http\Message\RequestInterface;
 
-use Elcodi\Component\Currency\Adapter\ExchangeRates\Interfaces\ExchangeRatesAdapterInterface;
+use Elcodi\Component\Currency\Adapter\CurrencyExchangeRatesProvider\Interfaces\CurrencyExchangeRatesProviderAdapterInterface;
 
 /**
- * Class OpenExchangeRatesAdapter
+ * Class OpenExchangeRatesProviderAdapter
  *
  * @author Gonzalo Miguez <mrzard@gmail.com>
  */
-class OpenExchangeRatesAdapter implements ExchangeRatesAdapterInterface
+class OpenExchangeRatesProviderAdapter implements CurrencyExchangeRatesProviderAdapterInterface
 {
     /**
      * @var string

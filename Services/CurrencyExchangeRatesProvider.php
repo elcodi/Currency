@@ -16,19 +16,19 @@
 
 namespace Elcodi\Component\Currency\Services;
 
-use Elcodi\Component\Currency\Adapter\ExchangeRates\Interfaces\ExchangeRatesAdapterInterface;
+use Elcodi\Component\Currency\Adapter\CurrencyExchangeRatesProvider\Interfaces\CurrencyExchangeRatesProviderAdapterInterface;
 
 /**
- * Class ExchangeRatesProvider
+ * Class CurrencyExchangeRatesProvider
  */
-class ExchangeRatesProvider
+class CurrencyExchangeRatesProvider
 {
     /**
-     * @var ExchangeRatesAdapterInterface
+     * @var CurrencyExchangeRatesProviderAdapterInterface
      *
      * openExchangeRatesService
      */
-    protected $openExchangeRatesService;
+    protected $exchangeRatesAdapter;
 
     /**
      * @var array
@@ -40,11 +40,11 @@ class ExchangeRatesProvider
     /**
      * Build method
      *
-     * @param ExchangeRatesAdapterInterface $openExchangeRatesService OpenExchangeRates service
+     * @param CurrencyExchangeRatesProviderAdapterInterface $exchangeRatesAdapter ExchangeRates adapter
      */
-    public function __construct(ExchangeRatesAdapterInterface $openExchangeRatesService)
+    public function __construct(CurrencyExchangeRatesProviderAdapterInterface $exchangeRatesAdapter)
     {
-        $this->openExchangeRatesService =  $openExchangeRatesService;
+        $this->exchangeRatesAdapter = $exchangeRatesAdapter;
         $this->exchangeRates = [];
     }
 
@@ -55,7 +55,7 @@ class ExchangeRatesProvider
      */
     public function getCurrencies()
     {
-        return $this->openExchangeRatesService->getCurrencies();
+        return $this->exchangeRatesAdapter->getCurrencies();
     }
 
     /**
@@ -73,7 +73,7 @@ class ExchangeRatesProvider
         }
 
         if (empty($this->exchangeRates)) {
-            $this->exchangeRates = $this->openExchangeRatesService->getExchangeRates();
+            $this->exchangeRates = $this->exchangeRatesAdapter->getExchangeRates();
         }
 
         if (empty($this->exchangeRates)) {
